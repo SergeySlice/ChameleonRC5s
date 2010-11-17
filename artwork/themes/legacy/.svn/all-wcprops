@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy
+END
+font_small.png
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/font_small.png
+END
+text_scroll_prev.png
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/text_scroll_prev.png
+END
+logo.png
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/logo.png
+END
+text_scroll_next.png
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/text_scroll_next.png
+END
+device_ext3.png
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/device_ext3.png
+END
+device_hfsplus.png
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/device_hfsplus.png
+END
+boot.png
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/boot.png
+END
+menu_single_user.png
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_single_user.png
+END
+device_selection.png
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/device_selection.png
+END
+menu_ignore_caches_disabled.png
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_ignore_caches_disabled.png
+END
+menu_video_info.png
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_video_info.png
+END
+menu_memory_info.png
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_memory_info.png
+END
+device_scroll_prev.png
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/device_scroll_prev.png
+END
+menu_selection.png
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_selection.png
+END
+theme.plist
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/theme.plist
+END
+device_scroll_next.png
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/device_scroll_next.png
+END
+menu_help.png
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_help.png
+END
+menu_ignore_caches.png
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_ignore_caches.png
+END
+background.png
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/background.png
+END
+menu_verbose_disabled.png
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_verbose_disabled.png
+END
+device_cdrom.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/device_cdrom.png
+END
+menu_boot.png
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_boot.png
+END
+progress_bar_background.png
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/progress_bar_background.png
+END
+font_console.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/font_console.png
+END
+progress_bar.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/progress_bar.png
+END
+device_ntfs.png
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/device_ntfs.png
+END
+device_fat.png
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/device_fat.png
+END
+menu_verbose.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_verbose.png
+END
+menu_single_user_disabled.png
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/menu_single_user_disabled.png
+END
+device_generic.png
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/chameleon/!svn/ver/327/trunk/artwork/themes/legacy/device_generic.png
+END

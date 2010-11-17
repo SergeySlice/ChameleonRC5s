@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/chameleon/!svn/ver/408/trunk/i386/util
+END
+bdmesg.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/384/trunk/i386/util/bdmesg.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/408/trunk/i386/util/Makefile
+END
+machOconv.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/chameleon/!svn/ver/23/trunk/i386/util/machOconv.c
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/chameleon/!svn/ver/157/trunk/i386/boot0
+END
+chain0.s
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/chameleon/!svn/ver/1/trunk/i386/boot0/chain0.s
+END
+boot0.s
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/157/trunk/i386/boot0/boot0.s
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/86/trunk/i386/boot0/Makefile
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/chameleon/!svn/ver/487/trunk/package
+END
+Distribution
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/1/trunk/package/Distribution
+END
+fdisk
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/chameleon/!svn/ver/1/trunk/package/fdisk
+END
+buildpkg
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/chameleon/!svn/ver/240/trunk/package/buildpkg
+END
+smbios.plist
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/1/trunk/package/smbios.plist
+END

@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/chameleon/!svn/ver/1/trunk/package/Scripts/Standard
+END
+postinstall
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/chameleon/!svn/ver/1/trunk/package/Scripts/Standard/postinstall
+END

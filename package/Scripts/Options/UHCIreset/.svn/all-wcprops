@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/chameleon/!svn/ver/1/trunk/package/Scripts/Options/UHCIreset
+END
+postinstall
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/chameleon/!svn/ver/1/trunk/package/Scripts/Options/UHCIreset/postinstall
+END

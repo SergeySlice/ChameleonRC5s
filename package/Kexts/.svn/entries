@@ -1,0 +1,43 @@
+10
+
+dir
+635
+http://forge.voodooprojects.org/svn/chameleon/trunk/package/Kexts
+http://forge.voodooprojects.org/svn/chameleon
+
+
+
+2010-01-14T01:05:41.527170Z
+1
+zef
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b5af796a-00a8-11df-919b-ffff7a100b7d
+
+Disabler.kext
+dir
+
+JMicronATAInjector.kext
+dir
+
+AHCIPortInjector.kext
+dir
+
+ATAPortInjector.kext
+dir
+
+IOAHCIBlockStorageInjector.kext
+dir
+

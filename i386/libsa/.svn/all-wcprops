@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/chameleon/!svn/ver/616/trunk/i386/libsa
+END
+libsa.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/432/trunk/i386/libsa/libsa.h
+END
+efi_tables.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/chameleon/!svn/ver/23/trunk/i386/libsa/efi_tables.h
+END
+printf.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/chameleon/!svn/ver/416/trunk/i386/libsa/printf.c
+END
+setjmp.s
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/chameleon/!svn/ver/1/trunk/i386/libsa/setjmp.s
+END
+zalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/chameleon/!svn/ver/616/trunk/i386/libsa/zalloc.c
+END
+string.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/chameleon/!svn/ver/432/trunk/i386/libsa/string.c
+END
+prf.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/chameleon/!svn/ver/1/trunk/i386/libsa/prf.c
+END
+strtol.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/23/trunk/i386/libsa/strtol.c
+END
+qsort.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/chameleon/!svn/ver/1/trunk/i386/libsa/qsort.c
+END
+error.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/chameleon/!svn/ver/1/trunk/i386/libsa/error.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/chameleon/!svn/ver/1/trunk/i386/libsa/Makefile
+END
+efi_tables.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/chameleon/!svn/ver/23/trunk/i386/libsa/efi_tables.c
+END
+memory.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/chameleon/!svn/ver/266/trunk/i386/libsa/memory.h
+END

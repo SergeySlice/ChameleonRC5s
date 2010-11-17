@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/chameleon/!svn/ver/327/trunk/i386/boot1
+END
+boot1f32.s
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/chameleon/!svn/ver/186/trunk/i386/boot1/boot1f32.s
+END
+boot1he.s
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/chameleon/!svn/ver/186/trunk/i386/boot1/boot1he.s
+END
+boot1.s
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/186/trunk/i386/boot1/boot1.s
+END
+boot1f32-install.sh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/chameleon/!svn/ver/168/trunk/i386/boot1/boot1f32-install.sh
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/chameleon/!svn/ver/1/trunk/i386/boot1/Makefile
+END
+boot1hp.s
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/1/trunk/i386/boot1/boot1hp.s
+END

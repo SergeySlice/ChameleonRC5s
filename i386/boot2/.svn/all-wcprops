@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/chameleon/!svn/ver/609/trunk/i386/boot2
+END
+picopng.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/chameleon/!svn/ver/23/trunk/i386/boot2/picopng.c
+END
+ramdisk.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/chameleon/!svn/ver/256/trunk/i386/boot2/ramdisk.h
+END
+graphics.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/chameleon/!svn/ver/438/trunk/i386/boot2/graphics.c
+END
+resume.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/chameleon/!svn/ver/46/trunk/i386/boot2/resume.c
+END
+graphic_utils.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/graphic_utils.h
+END
+boot.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/chameleon/!svn/ver/445/trunk/i386/boot2/boot.c
+END
+picopng.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/chameleon/!svn/ver/23/trunk/i386/boot2/picopng.h
+END
+graphics.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/chameleon/!svn/ver/128/trunk/i386/boot2/graphics.h
+END
+boot2.s
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/boot2.s
+END
+WKdm.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/WKdm.h
+END
+boot.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/chameleon/!svn/ver/609/trunk/i386/boot2/boot.h
+END
+drivers.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/chameleon/!svn/ver/199/trunk/i386/boot2/drivers.c
+END
+mboot.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/chameleon/!svn/ver/23/trunk/i386/boot2/mboot.c
+END
+prompt.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/prompt.c
+END
+bmdecompress.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/bmdecompress.c
+END
+multiboot.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/multiboot.h
+END
+gui.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/chameleon/!svn/ver/372/trunk/i386/boot2/gui.c
+END
+mboot.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/mboot.h
+END
+appleClut8.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/appleClut8.h
+END
+WKdmDecompress.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/WKdmDecompress.c
+END
+IOHibernatePrivate.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/IOHibernatePrivate.h
+END
+gui.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/chameleon/!svn/ver/372/trunk/i386/boot2/gui.h
+END
+appleboot.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/appleboot.h
+END
+ramdisk.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/chameleon/!svn/ver/264/trunk/i386/boot2/ramdisk.c
+END
+lzss.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/lzss.c
+END
+options.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/chameleon/!svn/ver/445/trunk/i386/boot2/options.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/chameleon/!svn/ver/412/trunk/i386/boot2/Makefile
+END
+graphic_utils.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/chameleon/!svn/ver/1/trunk/i386/boot2/graphic_utils.c
+END
