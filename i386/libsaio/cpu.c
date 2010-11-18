@@ -17,6 +17,7 @@
 #define DBG(x...)		msglog(x)
 #endif
 
+#define MEGA 1000000LL
 /*
  * DFE: Measures the TSC frequency in Hz (64-bit) using the ACPI PM timer
  */
@@ -94,9 +95,9 @@ void scan_cpu(PlatformInfo_t *p)
 {
 	uint64_t	tscFrequency, fsbFrequency, cpuFrequency;
 	uint64_t	msr, flex_ratio;
-	uint8_t		maxcoef, maxdiv, currcoef, currdiv;
+	uint8_t		maxcoef, maxdiv, currcoef, currdiv, mindiv;
 
-	maxcoef = maxdiv = currcoef = currdiv = 0;
+	maxcoef = maxdiv = currcoef = currdiv = mindiv = 0;
 
 	/* get cpuid values */
 	do_cpuid(0x00000000, p->CPU.CPUID[CPUID_0]);
@@ -192,19 +193,51 @@ void scan_cpu(PlatformInfo_t *p)
 	}
 
 	tscFrequency = measure_tsc_frequency();
+	DBG("measure_tsc_frequency = %dMHz\n", tscFrequency / MEGA);
+//Slice - it is not FSB frequency. It is System Bus Speed: FSB = SBS * 4;	
+	msr = rdmsr64(MSR_FSB_FREQ);
+	switch (msr & 7) {
+		case 0:
+			fsbFrequency = 266670 * 1000;
+			break;
+		case 1:
+			fsbFrequency = 133330 * 1000;
+			break;
+		case 2:
+			fsbFrequency = 200000 * 1000;
+			break;
+		case 3:
+			fsbFrequency = 166670 * 1000;
+			break;
+		case 4:
+			fsbFrequency = 333330 * 1000;
+			break;
+		case 5:
+			fsbFrequency = 200000 * 1000;
+			break;
+		case 6:
+			fsbFrequency = 400000 * 1000;
+			break;
+		default:
+			fsbFrequency = 0;
+			break;
+	}
+	DBG("msr(0x%04x): MSR_FSB_FREQ %dMHz\n", MSR_FSB_FREQ, fsbFrequency/MEGA);
+	
 	fsbFrequency = 0;
 	cpuFrequency = 0;
 
 	if ((p->CPU.Vendor == 0x756E6547 /* Intel */) && ((p->CPU.Family == 0x06) || (p->CPU.Family == 0x0f))) {
 		if ((p->CPU.Family == 0x06 && p->CPU.Model >= 0x0c) || (p->CPU.Family == 0x0f && p->CPU.Model >= 0x03)) {
 			/* Nehalem CPU model */
-			if (p->CPU.Family == 0x06 && (p->CPU.Model == 0x1a || p->CPU.Model == 0x1e
+			if (p->CPU.Family == 0x06 && (p->CPU.Model == 0x19 || p->CPU.Model == 0x1a || p->CPU.Model == 0x1e
 			 || p->CPU.Model == 0x1f || p->CPU.Model == 0x25 || p->CPU.Model == 0x2c)) {
 				msr = rdmsr64(MSR_PLATFORM_INFO);
-				DBG("msr(%d): platform_info %08x\n", __LINE__, msr & 0xffffffff);
+				DBG("msr(0x%04x): platform_info %08x\n", MSR_PLATFORM_INFO, msr & 0xffffffff);
 				currcoef = (msr >> 8) & 0xff;
+				mindiv = currcoef; //XXX
 				msr = rdmsr64(MSR_FLEX_RATIO);
-				DBG("msr(%d): flex_ratio %08x\n", __LINE__, msr & 0xffffffff);
+				DBG("msr(0x%04x): flex_ratio %08x\n", MSR_FLEX_RATIO, msr & 0xffffffff);
 				if ((msr >> 16) & 0x01) {
 					flex_ratio = (msr >> 8) & 0xff;
 					if (currcoef > flex_ratio) {
@@ -220,6 +253,11 @@ void scan_cpu(PlatformInfo_t *p)
 				msr = rdmsr64(MSR_IA32_PERF_STATUS);
 				DBG("msr(0x%04x): ia32_perf_stat 0x%08x\n", MSR_IA32_PERF_STATUS, msr & 0xffffffff); //__LINE__ - source line number :)
 				currcoef = (msr >> 8) & 0x1f;
+				mindiv = (msr >> 24) & 0xf;
+				if (currcoef < mindiv) {
+					currcoef = mindiv;
+				}
+				
 				/* Non-integer bus ratio for the max-multi*/
 				maxdiv = (msr >> 46) & 0x01;
 				/* Non-integer bus ratio for the current-multi (undocumented)*/
@@ -251,9 +289,25 @@ void scan_cpu(PlatformInfo_t *p)
 			}
 		}
 		/* Mobile CPU ? */
-		if (rdmsr64(0x17) & (1<<28)) {
+//Slice 
+		p->CPU.Mobile = FALSE;
+		switch (p->CPU.Model) {
+			case 0x0D:
+				p->CPU.Mobile = TRUE; // CPU_FEATURE_MOBILE;
+				break;
+			case 0x02:
+			case 0x03:
+			case 0x04:
+			case 0x06:	
+				p->CPU.Mobile = (rdmsr64(MSR_P4_EBC_FREQUENCY_ID) && (1 << 21));
+			default:
+				p->CPU.Mobile = (rdmsr64(MSR_IA32_PLATFORM_ID) && (1<<28));
+				break;
+		}
+		if (p->CPU.Mobile) {
 			p->CPU.Features |= CPU_FEATURE_MOBILE;
 		}
+		DBG("CPU is %s\n", p->CPU.Mobile?"Mobile":"Desktop");
 	}
 #if 0
 	else if((p->CPU.Vendor == 0x68747541 /* AMD */) && (p->CPU.Family == 0x0f)) {
@@ -282,16 +336,17 @@ void scan_cpu(PlatformInfo_t *p)
 			cpuFrequency = tscFrequency;
 		}
 	}
-
+#endif
 	if (!fsbFrequency) {
 		fsbFrequency = (DEFAULT_FSB * 1000);
 		cpuFrequency = tscFrequency;
 		DBG("0 ! using the default value for FSB !\n");
 	}
-#endif
+
 
 	p->CPU.MaxCoef = maxcoef;
 	p->CPU.MaxDiv = maxdiv;
+	p->CPU.MinCoef = mindiv;
 	p->CPU.CurrCoef = currcoef;
 	p->CPU.CurrDiv = currdiv;
 	p->CPU.TSCFrequency = tscFrequency;
@@ -301,7 +356,7 @@ void scan_cpu(PlatformInfo_t *p)
 	DBG("CPU: Vendor/Model/ExtModel: 0x%x/0x%x/0x%x\n", p->CPU.Vendor, p->CPU.Model, p->CPU.ExtModel);
 	DBG("CPU: Family/ExtFamily:      0x%x/0x%x\n", p->CPU.Family, p->CPU.ExtFamily);
 	DBG("CPU: MaxCoef/CurrCoef:      0x%x/0x%x\n", p->CPU.MaxCoef, p->CPU.CurrCoef);
-	DBG("CPU: MaxDiv/CurrDiv:        0x%x/0x%x\n", p->CPU.MaxDiv, p->CPU.CurrDiv);
+	DBG("CPU: MaxDiv/CurrDiv:        0x%x/0x%x\n", p->CPU.MaxDiv?2:1, p->CPU.CurrDiv?2:1);
 	DBG("CPU: TSCFreq:               %dMHz\n", p->CPU.TSCFrequency / 1000000);
 	DBG("CPU: FSBFreq:               %dMHz\n", p->CPU.FSBFrequency / 1000000);
 	DBG("CPU: CPUFreq:               %dMHz\n", p->CPU.CPUFrequency / 1000000);

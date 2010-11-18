@@ -97,6 +97,7 @@ extern char gMacOSVersion[];
 #define kEHCIhard			"EHCIhard"			/* usb.c */
 #define kDefaultPartition	"Default Partition"	/* sys.c */
 #define kMD0Image			"md0"				/* ramdisk.h */
+#define kUseCPUDMI			"CPUover"			/* fake_efi.c */
 
 /*
  * Flags to the booter or kernel

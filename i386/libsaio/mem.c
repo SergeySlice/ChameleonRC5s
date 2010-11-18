@@ -147,7 +147,7 @@ void scan_cpu_DMI(PlatformInfo_t *p)
     struct DMIHeader * dmihdr = NULL;    
     struct DMIProcessorInformation* cpuInfo; // Type 4
 	
-	for (dmihdr = FindFirstDmiTableOfType(4, 4); dmihdr; dmihdr = FindNextDmiTableOfType(4, 4)) 
+	for (dmihdr = FindFirstDmiTableOfType(4, 30); dmihdr; dmihdr = FindNextDmiTableOfType(4, 30)) 
 	{
 		cpuInfo = (struct DMIProcessorInformation*)dmihdr;
 		if (cpuInfo->processorType != 3) { // CPU
@@ -155,7 +155,7 @@ void scan_cpu_DMI(PlatformInfo_t *p)
 		}
 		//TODO validate
 #if 1 //NOTYET	
-		msglog("Platform CPU Info:\n FSB=%d\n MaxSpeed=%d\n CurrentSpeed=%d\n", Platform.CPU.FSBFrequency, Platform.CPU.TSCFrequency, Platform.CPU.CPUFrequency);
+		msglog("Platform CPU Info:\n FSB=%d\n MaxSpeed=%d\n CurrentSpeed=%d\n", Platform.CPU.FSBFrequency/MEGA, Platform.CPU.TSCFrequency/MEGA, Platform.CPU.CPUFrequency/MEGA);
 
 		if ((cpuInfo->externalClock) && (cpuInfo->externalClock < 400)) {  //<400MHz
 			Platform.CPU.FSBFrequency = (cpuInfo->externalClock) * MEGA;

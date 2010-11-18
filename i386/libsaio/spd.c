@@ -365,6 +365,7 @@ bool find_and_read_smbus_controller(pci_dt_t* pci_dt)
 {
     pci_dt_t	*current = pci_dt;
     int i;
+	bool ret = false;
 
     while (current) {
 #if 1
@@ -373,7 +374,7 @@ bool find_and_read_smbus_controller(pci_dt_t* pci_dt)
                current->class_id, current->vendor_id, current->device_id, 
                get_pci_dev_path(current));
 #endif
-	for ( i = 0; i <  sizeof(smbus_controllers) / sizeof(smbus_controllers[0]); i++ )
+		for ( i = 0; i <  sizeof(smbus_controllers) / sizeof(smbus_controllers[0]); i++ )
         {
             if (current->vendor_id == smbus_controllers[i].vendor &&
                 current->device_id == smbus_controllers[i].device)
@@ -382,10 +383,10 @@ bool find_and_read_smbus_controller(pci_dt_t* pci_dt)
                 return true;
             }        
         }
-        find_and_read_smbus_controller(current->children);
+        ret = ret || find_and_read_smbus_controller(current->children);
         current = current->next;
     }
-    return false; // not found
+    return ret; // not found
 }
 
 bool scan_spd(PlatformInfo_t *p)

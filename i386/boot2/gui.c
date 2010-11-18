@@ -42,23 +42,23 @@ enum {
     iLogo,
 
     iDeviceGeneric,
-    iDeviceGeneric_o,
+//    iDeviceGeneric_o,
     iDeviceHFS,
-    iDeviceHFS_o,
+//    iDeviceHFS_o,
     iDeviceHFSRAID,
-    iDeviceHFSRAID_o,
+//    iDeviceHFSRAID_o,
     iDeviceEXT3,
-    iDeviceEXT3_o,
+//    iDeviceEXT3_o,
     iDeviceFAT,
-    iDeviceFAT_o,
-    iDeviceFAT16,
-    iDeviceFAT16_o,
-    iDeviceFAT32,
-    iDeviceFAT32_o,
+//    iDeviceFAT_o,
+//    iDeviceFAT16,
+//    iDeviceFAT16_o,
+//    iDeviceFAT32,
+//    iDeviceFAT32_o,
     iDeviceNTFS,
-    iDeviceNTFS_o,
+//    iDeviceNTFS_o,
     iDeviceCDROM,
-    iDeviceCDROM_o,
+//    iDeviceCDROM_o,
 
     iSelection,
     iDeviceScrollPrev,
@@ -91,23 +91,23 @@ image_t images[] = {
     {.name = "logo",                        .image = NULL},
     
     {.name = "device_generic",              .image = NULL},
-    {.name = "device_generic_o",            .image = NULL},
+//    {.name = "device_generic_o",            .image = NULL},
     {.name = "device_hfsplus",              .image = NULL},
-    {.name = "device_hfsplus_o",            .image = NULL},
+//    {.name = "device_hfsplus_o",            .image = NULL},
     {.name = "device_hfsraid",              .image = NULL},
-    {.name = "device_hfsraid_o",            .image = NULL},
+//    {.name = "device_hfsraid_o",            .image = NULL},
     {.name = "device_ext3",                 .image = NULL},
-    {.name = "device_ext3_o",               .image = NULL},
+//    {.name = "device_ext3_o",               .image = NULL},
     {.name = "device_fat",                  .image = NULL},
-    {.name = "device_fat_o",                .image = NULL},
+//    {.name = "device_fat_o",                .image = NULL},
 //    {.name = "device_fat16",                .image = NULL},
 //    {.name = "device_fat16_o",              .image = NULL},
 //    {.name = "device_fat32",                .image = NULL},
 //    {.name = "device_fat32_o",              .image = NULL},
     {.name = "device_ntfs",                 .image = NULL},
-    {.name = "device_ntfs_o",               .image = NULL},
+//    {.name = "device_ntfs_o",               .image = NULL},
     {.name = "device_cdrom",                .image = NULL},
-    {.name = "device_cdrom_o",              .image = NULL},
+//    {.name = "device_cdrom_o",              .image = NULL},
 
     {.name = "device_selection",            .image = NULL},
     {.name = "device_scroll_prev",          .image = NULL},
@@ -302,23 +302,23 @@ static int loadGraphics(void)
 	LOADPNG(logo,                           IMG_REQUIRED);
 
 	LOADPNG(device_generic,                 IMG_REQUIRED);
-	LOADPNG(device_generic_o,               iDeviceGeneric);
+//	LOADPNG(device_generic_o,               iDeviceGeneric);
 	LOADPNG(device_hfsplus,                 iDeviceGeneric);
-	LOADPNG(device_hfsplus_o,               iDeviceHFS);
-	LOADPNG(device_hfsraid,                 iDeviceGeneric);
-	LOADPNG(device_hfsraid_o,               iDeviceHFSRAID);
+//	LOADPNG(device_hfsplus_o,               iDeviceHFS);
+	LOADPNG(device_hfsraid,                 iDeviceGeneric); 
+//	LOADPNG(device_hfsraid_o,               iDeviceHFSRAID);
 	LOADPNG(device_ext3,                    iDeviceGeneric);
-	LOADPNG(device_ext3_o,                  iDeviceEXT3);
-	LOADPNG(device_fat,                     iDeviceFAT);
-	LOADPNG(device_fat_o,                   iDeviceFAT_o);
+//	LOADPNG(device_ext3_o,                  iDeviceEXT3);
+	LOADPNG(device_fat,                     iDeviceGeneric);
+//	LOADPNG(device_fat_o,                   iDeviceFAT_o);
 //	LOADPNG(device_fat16,                   iDeviceFAT);
 //	LOADPNG(device_fat16_o,                 iDeviceFAT_o);
 //	LOADPNG(device_fat32,                   iDeviceFAT);
 //	LOADPNG(device_fat32_o,                 iDeviceFAT_o);
 	LOADPNG(device_ntfs,                    iDeviceGeneric);
-	LOADPNG(device_ntfs_o,                  iDeviceNTFS);
+//	LOADPNG(device_ntfs_o,                  iDeviceNTFS);
 	LOADPNG(device_cdrom,                   iDeviceGeneric);
-	LOADPNG(device_cdrom_o,                 iDeviceCDROM);
+//	LOADPNG(device_cdrom_o,                 iDeviceCDROM);
 
 	LOADPNG(device_selection,               IMG_REQUIRED);
 	LOADPNG(device_scroll_prev,             IMG_REQUIRED);
@@ -769,11 +769,11 @@ void drawDeviceIcon(BVRef device, pixmap_t *buffer, position_t p, bool isSelecte
 				break;
 
 			case kPartitionTypeFAT16:
-				devicetype = iDeviceFAT16;		// Use FAT16 icon
+				devicetype = iDeviceFAT;		// Use FAT16 icon
 				break;
 
 			case kPartitionTypeFAT32:
-				devicetype = iDeviceFAT32;		// Use FAT32 icon
+				devicetype = iDeviceFAT;		// Use FAT32 icon
 				break;
 
 			case kPartitionTypeEXT3:
@@ -787,16 +787,18 @@ void drawDeviceIcon(BVRef device, pixmap_t *buffer, position_t p, bool isSelecte
 	}
 	
 	// Draw the selection image and use the next (device_*_o) image for the selected item.
-    if (isSelected)
+//Slice - I disabled alt_images because of leak of memory. There is a good graphics but 
+// a problem with memory.	
+/*    if (isSelected)
 	{
 		blend(images[iSelection].image, buffer, centeredAt(images[iSelection].image, p));
 		devicetype++;
 	}
-
+*/
 	// draw icon
 	blend( images[devicetype].image, buffer, centeredAt( images[devicetype].image, p ));
-	
-	p.y += (images[iSelection].image->height / 2) + font_console.chars[0]->height;
+//TODO calculate good offset	
+	p.y += (images[iSelection].image->height / 2) + font_console.chars[0]->height + 20;
 	
 	// draw volume label 
 	drawStrCenteredAt( device->label, &font_small, buffer, p);	
@@ -863,7 +865,7 @@ void drawDeviceList (int start, int end, int selection)
 			if(gui.menu.draw)
 				drawInfoMenuItems();
 //Slice			 
-//			blend( images[iSelection].image, gui.devicelist.pixmap, centeredAt( images[iSelection].image, p ) );
+			blend( images[iSelection].image, gui.devicelist.pixmap, centeredAt( images[iSelection].image, p ) );
 			 
 #if DEBUG
             gui.debug.cursor = pos( 10, 100);

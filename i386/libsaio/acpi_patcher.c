@@ -999,9 +999,11 @@ int setupAcpi(void)
 						rsdt_entries[i-dropoffset]=(uint32_t)fadt_mod;
 					} else {
 						if (fadt && Platform.Type)
-							fadt->PM_Profile = Platform.Type;	//For ACPI1.0 the only patch						
+							fadt->PM_Profile = Platform.Type;	//For ACPI1.0 the only patch
+						fadt_mod = fadt;
 						rsdt_entries[i-dropoffset]=(uint32_t)fadt;
 					}
+					DBG("FADT_mod table sign: %s\n", fadt_mod->Signature);
 					//Slice
 					//Now I want to replace DSDT in place
 					// it is only way to patch DSDT on some platform
@@ -1130,7 +1132,7 @@ int setupAcpi(void)
 						struct acpi_2_fadt *fadt, *fadt_mod;
 						fadt=(struct acpi_2_fadt *)(uint32_t)xsdt_entries[i];
 						
-						DBG("FADT found @%x,%x, Length %d\n",(uint32_t)(xsdt_entries[i]>>32),fadt, 
+						DBG("FADT found @%x%x, Length %d\n",(uint32_t)(xsdt_entries[i]>>32),fadt, 
 							fadt->Length);
 						
 						if (!fadt || (uint64_t)xsdt_entries[i] >= 0xffffffff || fadt->Length>0x10000)

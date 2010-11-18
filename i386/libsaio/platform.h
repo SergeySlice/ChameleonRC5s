@@ -119,6 +119,7 @@ typedef struct _PlatformInfo_t {
 		uint32_t		NoThreads;		// Threads per Package
 		uint8_t			MaxCoef;		// Max Multiplier
 		uint8_t			MaxDiv;
+		uint8_t			MinCoef;
 		uint8_t			CurrCoef;		// Current Multiplier
 		uint8_t			CurrDiv;
 		float			MaxRatio;				

@@ -558,6 +558,7 @@ static EFI_CHAR8* getSystemID()
 		ret=getUUIDFromString((sysId = (const char*) SYSTEM_ID));
 	
 	verbose("Customizing SystemID with : %s\n", getStringFromUUID(ret)); // apply a nice formatting to the displayed output
+	
 	return ret;
 }
 
@@ -751,8 +752,12 @@ static void setupSmbiosConfigFile(const char *filename)
 	scan_mem(); 
 	smbios_p = (EFI_PTR32)getSmbios(SMBIOS_PATCHED);	// process smbios asap
 //Slice
-	scan_cpu_DMI(&Platform);
-	// Determine system type / PM_Model
+	bool useDMIinfoCPU = true;
+    getBoolForKey(kUseCPUDMI, &useDMIinfoCPU, &bootInfo->bootConfig);
+	if (useDMIinfoCPU) {
+		scan_cpu_DMI(&Platform);
+	}
+	// PM_Model
 	if ((Platform.CPU.Features & CPU_FEATURE_MOBILE)) {
 		Platform.Type = 2;
 	} else {
@@ -761,9 +766,14 @@ static void setupSmbiosConfigFile(const char *filename)
 	
 	//Slice - overclock CPU patch
 	struct DMIProcessorInformation* p = (struct DMIProcessorInformation*) FindFirstDmiTableOfType(4, 0x28);
-	verbose("Overclocked CPU from %dMHz to %dMHz\n", p->maximumClock, p->currentClock);
-	if ((p->currentClock) && (p->currentClock > p->maximumClock) && (p->currentClock < 10000))
+	
+	if (useDMIinfoCPU && ((p->currentClock) && 
+		(p->currentClock > p->maximumClock) &&
+		(p->currentClock < 10000)))
+	{
 		p->maximumClock = p->currentClock;
+		verbose("Overclocked CPU from %dMHz to %dMHz\n", p->maximumClock, p->currentClock);
+	}
 }
 
 /*
