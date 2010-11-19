@@ -137,7 +137,7 @@ static uint64_t ptov64(uint32_t addr)
 
 /* Identify ourselves as the EFI firmware vendor */
 static EFI_CHAR16 const FIRMWARE_VENDOR[] = {'C','h','a','m','e','l','e','o','n','_','2','.','3','S', 0};
-static EFI_UINT32 const FIRMWARE_REVISION = 0x0001000a; /* FIXME: Find a constant for this. */
+static EFI_UINT32 const FIRMWARE_REVISION = 0x0001000a; 
 static EFI_UINT32 const FIRMWARE_FEATURE_MASK = 0x000003FF;
 static EFI_UINT32 const STATIC_ZERO = 0;
 
@@ -628,7 +628,7 @@ void setupEfiDeviceTree(void)
 	//TODO - BootCamp emulation?
 /*
  romNode = DT__FindNode("/rom", true);
- DT__AddProperty(romNode, "fv-main-address"...
+ DT__AddProperty(romNode, "fv-main-address"...  //provided by AppleSMBIOS
  DT__AddProperty(romNode, "fv-main-size"...
  "IOEFIDevicePathType" -> "MediaFirmwareVolumeFilePath"
  "Guid" -> "2B0585EB-D8B8-49A9-8B8C-E21B01AEF2B7"
@@ -768,7 +768,7 @@ static void setupSmbiosConfigFile(const char *filename)
 	struct DMIProcessorInformation* p = (struct DMIProcessorInformation*) FindFirstDmiTableOfType(4, 0x28);
 	
 	if (useDMIinfoCPU && ((p->currentClock) && 
-		(p->currentClock > p->maximumClock) &&
+	//	(p->currentClock > p->maximumClock) &&
 		(p->currentClock < 10000)))
 	{
 		p->maximumClock = p->currentClock;
